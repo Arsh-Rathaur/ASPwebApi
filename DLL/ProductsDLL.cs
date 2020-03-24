@@ -31,6 +31,7 @@ namespace DLL
                         Products.ID = Convert.ToInt32(dr["ID"]);
                         Products.product_id = (Convert.ToString(dr["product_id"]));
                         Products.product_name = Convert.ToString(dr["product_name"]);
+                        Products.stock_available = Convert.ToString(dr["stock_available"]);
                         AllProducts.Add(Products);
                     }
                 return AllProducts;
