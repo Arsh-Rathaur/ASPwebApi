@@ -19,10 +19,10 @@ namespace ASPwebApiTest.Controllers
         }
 
         // GET api/values
-        public IEnumerable<string> Get()
+        public string Get()
         {
-            var JProducts = JsonConvert.SerializeObject(Products.GetAllProducts());
-            return new string[] { JProducts };
+            var Date = DateTime.UtcNow.ToString("o");
+            return Date;
         }
 
         // GET api/values/5
