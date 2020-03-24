@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,10 +11,18 @@ namespace ASPwebApiTest.Controllers
 {
     public class ValuesController : ApiController
     {
+        public ProductsOperationsBLL Products;
+
+        public ValuesController()
+        {
+            this.Products = new ProductsOperationsBLL();
+        }
+
         // GET api/values
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            var JProducts = JsonConvert.SerializeObject(Products.GetAllProducts());
+            return new string[] { JProducts };
         }
 
         // GET api/values/5
